@@ -8,6 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -16,7 +17,7 @@
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increase card size */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             padding: 20px;
             width: 90%;
@@ -31,7 +32,7 @@
             transition: transform 0.3s;
         }
         .card:hover {
-            transform: scale(1.05); /* Slight zoom effect on hover */
+            transform: scale(1.05);
         }
         .card img {
             width: 100%;
@@ -43,10 +44,24 @@
             margin-top: 15px;
             color: #333;
         }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            width: 100%;
+            position:relative;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
     <div class="gallery" id="gallery"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        Submitted by: Dante T. Filasol Jr.  BSIT-3C
+    </footer>
 
     <script>
         // Fetch JSON data and display it
@@ -63,8 +78,8 @@
                     card.className = 'card';
 
                     const img = document.createElement('img');
-                    img.src = artwork.thumbnail.lqip;  // Using lqip for low-quality image preview
-                    img.alt = artwork.thumbnail.alt_text;
+                    img.src = artwork.thumbnail.lqip || 'sleeping_cat.jpg';
+                    img.alt = artwork.thumbnail.alt_text || 'Artwork Image';
 
                     const title = document.createElement('div');
                     title.className = 'title';
